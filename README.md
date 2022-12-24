@@ -1,11 +1,11 @@
 # DAO contract
 
-A ERC20 extended implementation that allows vote for/against some proposals. For more clarifications, see 'Requirements' part.
+An ERC20 extended implementation that allows vote for/against some proposals. For more clarifications, see 'Requirements' part.
 Besides, there some thoughts about implementation and why it's done like this.
 
-1. It's allowed to transfer token only to addresses that have balance equals to 0 tokens. In case, we cannot freeze any token for voting time, it becomes hard to manage transaction from holder to holder, cause we cannot clearly say, which part of second holder's tokens is already has non-zero shares in voting and which one - hasn't. However, there is supported mechanism of saving already done vote, when after transferring there are some token remains on address. Otherwise, the vote declines.
-2. It's allowed to change your already done vote into opposite one any times you want until proposal TTL expiration or the decision is made.
-3. It's allowed to have different proposals with the same messages. Cause checking this thing costs us a lot of gas wasting, because of O(n) storage lookups.
+1. It's allowed to transfer token only to addresses that have balance equals to 0 tokens. In case, we cannot freeze any token for voting time, it becomes hard to manage transaction from holder to holder, cause we cannot clearly say, which part of second holder tokens already has non-zero shares in voting and which one - hasn't. However, there is supported mechanism of saving already applied vote shares, when after transferring there are some token remains on address. Otherwise, the vote declines and holder becomes a non-holder.
+2. It's allowed to change your already done vote into opposite one any times you want until proposal TTL expiration or the decision about proposal is made.
+3. It's allowed to have different proposals with the same messages. Cause checking this thing costs us a lot of gas wasting due to O(n) storage lookups. So, if it's important to have a distinct proposals, please, take care about it by yourselves.
 
 I guess, code is good doced, so you can find any needed function explanation inside.
 
