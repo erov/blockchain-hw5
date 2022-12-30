@@ -10,7 +10,7 @@ Besides, there some thoughts about implementation and why it's done like this.
 I guess, code is good doced, so you can find any needed function explanation inside.
 
 ## Preparing 
-Node.js must be installed before work starting. Moreover, there is some modules that we need in:
+Node.js must be installed before work starting. Moreover, there are some modules that we need in:
 ```
 npm install --save-dev hardhat
 npm install module '@openzeppelin/contracts'
